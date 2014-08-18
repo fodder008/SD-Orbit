@@ -115,15 +115,16 @@ g12345(N) -> g1234(N) ++ g5(N).
 
 %% distributed orbit computation
 dist(Generators, N, P, Nodes, NumberOfGroups) ->
-  %% io:format("Number of all nodes: ~p\n", [{length(Nodes), Nodes}]),
+    io:format("Number of all nodes: ~p\n", [{length(Nodes), Nodes}]),
     case grouping:initiate(Nodes, NumberOfGroups) of %% recursively creates and returns all the submasters and group names
 	{ok, Sub_masters} ->
-		List_of_groups=grouping:create_group_list(Sub_masters,N, NumberOfGroups),
-		sz(master:orbit(Generators(N), [0],P, 1, false, List_of_groups));
+	    io:format("Trying to call create group"),
+	    List_of_groups=grouping:create_group_list(Sub_masters,N, NumberOfGroups),
+	    sz(master:orbit(Generators(N), [0],P, 1, false, List_of_groups));
 	Else ->
-		io:format("Exception: ~p\n", [Else]),
-		Else
-  end.
+	    io:format("Exception: ~p\n", [Else]),
+	    Else
+    end.
 
 
 

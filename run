@@ -1,5 +1,5 @@
 #!/usr/bin/env escript
-
+%%! -config s_group.config -setcookie APCRZKXJWCVOIEPWUOOR
 main(Args) ->
 	mkdir("ebin"),
     %% Check for force=1 flag to force a rebuild

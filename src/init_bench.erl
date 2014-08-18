@@ -16,6 +16,9 @@ main() ->
     G_size=5, %% Number of nodes in each s_group
     Nodes=config:get_key(nodes), %% Loads list of node names from config file
     NumGroups=length(Nodes) div G_size,
+    io:format("Current cookie: ~p~n",[erlang:get_cookie()]),
+    Res = rpc:call('node1@127.0.0.1',erlang, get_cookie, []),
+    io:format("Node1's cookie : ~p~n", [Res]),
     Start = now(),
     if 
 		NumGroups>0 ->

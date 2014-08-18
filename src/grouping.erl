@@ -30,6 +30,7 @@ do_grouping(Nodes, Size, NumGroup, Acc) ->
 
 %% creates a s_group on Submaster and includes all Workers in it
 make_group([Submaster|Workers], Counter) ->
+    %io:format("Creating group with submasters:~p~nWorkers: ~p~nAnd counter: ~p",[Submaster,Workers,Counter]),
     spawn(Submaster, grouping, create_group, [self(), [Submaster|Workers], Counter]),
     receive GroupName ->
             {Submaster, GroupName}
@@ -40,10 +41,12 @@ create_group(Master, Nodes, Counter) ->
     FixName=group, %% prefix for creating s_group name
     GroupName=list_to_atom(atom_to_list(FixName) ++ integer_to_list(Counter)),
     try 
+	io:format("Creating new group with name~p~n",[GroupName]),
         {ok, GroupName, _}=s_group:new_s_group(GroupName,Nodes), %% creates group and add all nodes to it
         Master! GroupName %% Sends the group name to the submaster node
     catch
         E1:E2->
+	    io:format("Error was thrown"),
             io:format("Error:~p\n", [{E1, E2}]),
             %% io:format("exception: SD Erlang is not installed at: ~p \n",[code:root_dir()]),
             sderlang_is_not_installed
