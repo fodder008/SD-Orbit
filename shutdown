@@ -5,7 +5,9 @@ main(_Args) ->
     %%net_kernel:start([shell, shortnames]),
     %erlang:set_cookie(node(), list_to_atom("APCRZKXJWCVOIEPWUOOR")),
     io:format("Cookie: ~p~n",[erlang:get_cookie()]),
-    shutdown_nodes(12).
+    shutdown_nodes(12),
+    Res = rpc:call('sd_orbit@127.0.0.1',init,stop,[]),
+    io:format("Result of sd_orbit@127.0.0.1 shutdown: ~p~n",[Res]).
 
 shutdown_nodes(1) ->
     Nodename = 'node1@127.0.0.1',

@@ -11,5 +11,5 @@ erl -name node9@127.0.0.1 -detached -pa ebin/ -config s_group.config
 erl -name node10@127.0.0.1 -detached -pa ebin/ -config s_group.config
 erl -name node11@127.0.0.1 -detached -pa ebin/ -config s_group.config
 erl -name node12@127.0.0.1 -detached -pa ebin/ -config s_group.config
-erl -name node1@127.0.0.1 -pa ebin/ -config s_group.config
-
+erl -name node1@127.0.0.1 -detached -pa ebin/ -config s_group.config
+erl -name sd_orbit@127.0.0.1 -pa ebin/ -config s_group.config
