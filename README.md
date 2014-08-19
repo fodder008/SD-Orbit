@@ -11,9 +11,16 @@ How to build and run Orbit
 
 There are two ways to run the benchmark. .
 
-* Run on the local node (`nonode@nohost`):
+* Run on the local node:
 
-		$ ./run
+		$ ./localStart.sh
+		Erlang R16B03 (erts-5.10.4) [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
+
+		Eshell V5.10.4  (abort with ^G)
+		(sd_orbit@127.0.0.1)1> init_bench:main().
+
+* When you want to shutdown all the nodes in another terminal call:
+       	   	$ ./shutdown
 
 The config file for a local run is `bench.config`. After finishing the benchmark, the results are shown on screen. If you get `SD Erlang is not installed` exception, you need to install SD Erlang and `which erl` should point to it.
 
