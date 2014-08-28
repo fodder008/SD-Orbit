@@ -29,7 +29,7 @@ perpetual_demo([MasterGroup,Group1,Group2], SubMasters) ->
     bench:sz(master:orbit(bench:g12345(N),[0],P,1,false,[{'sd_orbit@127.0.0.1',master_group,5000}])),
     io:format("Adding groups 1 and 2 again~n"),
     s_group:new_s_group(group1, Group1),
-    timer:sleep(500),
+    timer:sleep(1000),
     s_group:new_s_group(group2, Group2),
     perpetual_demo([MasterGroup,Group1,Group2], SubMasters).
     
