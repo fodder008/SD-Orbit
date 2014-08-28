@@ -12,4 +12,3 @@ erl -name node10@127.0.0.1 -detached -pa ebin/
 erl -name node11@127.0.0.1 -detached -pa ebin/
 erl -name node12@127.0.0.1 -detached -pa ebin/
 erl -name node1@127.0.0.1 -detached -pa ebin/
-erl -name sd_orbit@127.0.0.1 -pa ebin/

@@ -120,6 +120,7 @@ dist(Generators, N, P, Nodes, NumberOfGroups) ->
 	{ok, Sub_masters} ->
 	    io:format("Trying to call create group"),
 	    List_of_groups=grouping:create_group_list(Sub_masters,N, NumberOfGroups),
+	    io:format("List_of_groups: ~p~n",[List_of_groups]),
 	    sz(master:orbit(Generators(N), [0],P, 1, false, List_of_groups));
 	Else ->
 	    io:format("Exception: ~p\n", [Else]),

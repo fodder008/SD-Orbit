@@ -5,7 +5,7 @@
 
 -module(grouping).
 
--export([initiate/2,create_group/3, create_group_list/3]).
+-export([initiate/2,create_group/3, create_group_list/3,make_group/2]).
 
 
 %% makes s_groups by dividing all the nodes into a number of s_groups
