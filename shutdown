@@ -1,6 +1,5 @@
 #!/usr/bin/env escript
-%%! -name terminator@127.0.0.1 -setcookie APCRZKXJWCVOIEPWUOOR
-
+%%! -name terminator@127.0.0.1
 main(_Args) ->
     %%net_kernel:start([shell, shortnames]),
     %erlang:set_cookie(node(), list_to_atom("APCRZKXJWCVOIEPWUOOR")),
